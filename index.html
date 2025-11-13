@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uranusfazry Web &amp; App Developer – Celestial Guardian Theme</title>
+    <title>Kumpulan Website Induk - Tema MLBB</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Import Three.js -->
@@ -18,18 +18,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Share+Tech+Mono&display=swap');
-        /* [NEW] Import heroic font for Uranus theme */
+        /* [NEW] Import heroic font for MLBB theme */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&display=swap');
 
-        /* --- Variabel Warna & Tema Neon (File 1) --- */
+        /* --- Variabel Warna & Tema MLBB --- */
         :root {
-            /* Updated color palette for the Uranus – Celestial Guardian theme */
-            --neon-blue: #68c5ff;    /* ethereal cosmic blue */
-            --neon-pink: #ffd700;    /* radiant celestial gold */
-            --neon-purple: #8765f7;  /* soft cosmic purple */
-            --dark-bg: #0b153d;      /* deep space backdrop */
-            --darker-bg: #0e214a;    /* darker cosmic shading */
-            --nav-dark: #0b153d;     /* navigation background matches cosmic theme */
+            /* Updated color palette for the MLBB theme */
+            --neon-blue: #68c5ff;  /* MLBB Blue */
+            --neon-pink: #ffd700;  /* MLBB Gold */
+            --neon-purple: #8765f7; /* MLBB Magic Purple */
+            --dark-bg: #0b153d;   /* MLBB Deep Blue */
+            --darker-bg: #0e214a;  /* MLBB Darker Shade */
+            --nav-dark: #0b153d;   /* Navigation background */
             /* --- Variabel Warna Terminal (File 2) --- */
             --terminal-bg: #0a0a12;
             --terminal-green: #0f0;
@@ -38,9 +38,10 @@
             --terminal-red: #f44;
             --terminal-glow: rgba(0, 255, 0, 0.7);
             --text-color: #e0e0e0;
-            --text-shadow: 0 0 8px var(--terminal-glow);
+            /* [PERBAIKAN] Mengganti shadow default di terminal dari hijau ke putih lembut agar lebih mudah dibaca */
+            --text-shadow: 0 0 5px rgba(224, 224, 224, 0.5);
         }
-
+ 
         /* --- Styling Dasar (File 1) --- */
         body {
             font-family: 'Inter', sans-serif;
@@ -78,14 +79,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Overlay cosmic gradient to create celestial ambience */
+            /* Overlay cosmic gradient to create MLBB ambience */
             background-image: radial-gradient(circle at 20% 30%, rgba(104,197,255,0.25), transparent 70%), radial-gradient(circle at 80% 70%, rgba(255,215,0,0.2), transparent 70%), var(--bg-image, none);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             z-index: -2;
         }
-
+ 
         body::after {
             content: '';
             position: fixed;
@@ -93,7 +94,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Soft grid overlay in cosmic blue for subtle structure */
+            /* Soft grid overlay in MLBB blue for subtle structure */
             background-image: linear-gradient(to right, rgba(104, 197, 255, 0.05) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(104, 197, 255, 0.05) 1px, transparent 1px);
             background-size: 30px 30px;
@@ -101,9 +102,11 @@
             pointer-events: none;
             transition: opacity 0.5s ease-in-out;
         }
-
-        /* --- [NEW] Text Stroke for Readability on Background Image --- */
-        body.has-bg-media main,
+ 
+        /* --- [PERBAIKAN] Text Stroke dibuat lebih spesifik --- */
+        /* Menghapus stroke global agar tidak bentrok dengan card */
+        body.has-bg-media header,
+        body.has-bg-media .holographic-effect,
         body.has-bg-media footer {
              text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
@@ -747,8 +750,8 @@
             white-space: nowrap;
         }
 
-        /* --- Uranus Celestial Guardian theme overrides --- */
-        /* Enhance navbar to match the celestial theme */
+        /* --- MLBB theme overrides --- */
+        /* Enhance navbar to match the MLBB theme */
         nav.navbar {
             background-color: rgba(11, 21, 61, 0.85);
             border-bottom: 1px solid var(--neon-pink);
@@ -792,11 +795,12 @@
                 <!-- Logo -->
                 <div id="logo-container" class="flex items-center cursor-pointer">
                     <div class="neon-border-pink rounded-full p-2">
-                        <i class="fas fa-terminal text-xl neon-text-pink"></i>
+                        <!-- [PERBAIKAN] Ikon diganti agar lebih sesuai tema MLBB (seperti emblem) -->
+                        <i class="fas fa-shield-halved text-xl neon-text-pink"></i>
                     </div>
                     <span class="ml-3 font-bold text-xl neon-text-blue">URANUSFAZRY</span>
                 </div>
-
+ 
                 <!-- Nav Items -->
                 <div class="hidden md:flex items-center space-x-6">
                     <div class="nav-item relative group">
@@ -838,7 +842,7 @@
                                     </button>
                                 </div>
                             </div>
-                           
+                        
                             <!-- [MODIFIED] Data Management Section (PDF Removed) -->
                             <h3 class="text-sm neon-text-blue mt-4 mb-3 uppercase tracking-wider">Data Management</h3>
                             <div class="grid grid-cols-2 gap-2">
@@ -857,7 +861,7 @@
                             <div class="text-xs space-y-2 font-tech">
                                 <div class="flex justify-between">
                                     <span>Version</span>
-                                    <span class="text-[var(--neon-blue)]">v6.0.0-no-pdf</span>
+                                    <span class="text-[var(--neon-blue)]">v7.0.0-mlbb</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span>Portals</span>
@@ -868,7 +872,7 @@
                     </div>
 
                     <div class="nav-item relative group">
-                        <a href="https://wa.me/6287872521809?text=Halo%2C+saya+tertarik+dengan+aplikasi+atau+website+seperti+Uranus+Fazry.+Saya+dengar+harganya+terjangkau+dan+langsung+dari+Anda.+Boleh+info+lebih+lanjut%3F" target="_blank" class="flex items-center space-x-1 neon-text-blue neon-underline font-tech">
+                        <a href="https://wa.me/6287872521809?text=Halo%2C+saya+tertarik+dengan+portal+MLBB+Anda." target="_blank" class="flex items-center space-x-1 neon-text-blue neon-underline font-tech">
                             <i class="fas fa-address-card"></i>
                             <span>WhatsApp</span>
                         </a>
@@ -890,7 +894,7 @@
                 <button onclick="showAddLinkModal()" class="block px-3 py-2 rounded-md neon-text-blue w-full text-left hover:bg-[var(--neon-blue)]/20 font-tech">
                     <i class="fas fa-plus mr-2"></i>Add New Portal
                 </button>
-                <a href="https://wa.me/6287872521809?text=Halo%2C+saya+tertarik+dengan+aplikasi+atau+website+seperti+Uranus+Fazry.+Saya+dengar+harganya+terjangkau+dan+langsung+dari+Anda.+Boleh+info+lebih+lanjut%3F" target="_blank" class="block px-3 py-2 rounded-md neon-text-blue w-full text-left hover:bg-[var(--neon-blue)]/20 font-tech">
+                <a href="https://wa.me/6287872521809?text=Halo%2C+saya+tertarik+dengan+portal+MLBB+Anda." target="_blank" class="block px-3 py-2 rounded-md neon-text-blue w-full text-left hover:bg-[var(--neon-blue)]/20 font-tech">
                     <i class="fas fa-address-card mr-2"></i>WhatsApp
                 </a>
                 <div class="px-3 py-2">
@@ -939,6 +943,7 @@
         <!-- Header -->
         <header class="text-center mb-12">
             <div class="profile">
+                <!-- Gambar profil dipertahankan sesuai permintaan implisit (host: UranusFazry) -->
                 <img src="https://i.imghippo.com/files/hkw7793vi.jpg" alt="Foto profil pribadi" onerror="this.onerror=null;this.src='https://placehold.co/120x120/0d0221/ffffff?text=UF';">
             </div>
             <div class="relative inline-block">
@@ -948,9 +953,9 @@
                 <span
                     class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[var(--neon-pink)] to-transparent"></span>
             </div>
-            <p class="text-lg md:text-xl neon-text-purple uppercase tracking-wider mt-8">Web &amp; App Digital Creator</p>
+            <p class="text-lg md:text-xl neon-text-purple uppercase tracking-wider mt-8">Kumpulan Website Induk MLBB</p>
              <p class="max-w-2xl mx-auto mt-6 text-base md:text-lg text-gray-300 leading-relaxed">
-                Selamat datang di pusat berbagai proyek digital yang saya rancang dan kembangkan. Di sini Anda dapat menjelajahi karya-karya saya.
+                Selamat datang di portal MLBB Uranus Fazry. Temukan semua link penting, dari website resmi, esports, hingga komunitas.
             </p>
         </header>
         <!-- Time and date display -->
@@ -969,7 +974,7 @@
                     <div class="terminal-button yellow"></div>
                     <div class="terminal-button green"></div>
                 </div>
-                <div class="glitch" data-text="uranusfazry@cyberterminal">uranusfazry@cyberterminal</div>
+                <div class="glitch" data-text="uranusfazry@landofdawn">uranusfazry@landofdawn</div>
                 <div class="terminal-buttons">
                     <div style="width: 20px;"></div>
                 </div>
@@ -1024,192 +1029,69 @@
 
                 <div>
                     <label class="block mb-2 neon-text-blue uppercase text-sm tracking-wider">Icon</label>
+                    <!-- [PERBAIKAN] Daftar ikon di-grup agar lebih rapi dan mudah dicari -->
                     <select id="portal-icon" class="w-full p-3 rounded-lg bg-[#0d0221] border border-[var(--neon-blue)] focus:outline-none focus:border focus:border-[var(--neon-pink)]">
-                        <!-- [UPDATED] More Icons -->
-                        <option value="fas fa-link">Default Link</option>
-                        <option value="fas fa-trophy">Trophy</option>
-                        <option value="fas fa-star">Star</option>
-                        <option value="fas fa-store">Store</option>
-                        <option value="fas fa-desktop">Desktop</option>
-                        <option value="fas fa-mobile-alt">Mobile</option>
-                        <option value="fas fa-chart-line">Chart Line</option>
-                        <option value="fas fa-globe">Globe</option>
-                        <option value="fas fa-gamepad">Gamepad</option>
-                        <option value="fas fa-newspaper">Newspaper</option>
-                        <option value="fas fa-laptop-code">Laptop Code</option>
-                        <option value="fas fa-envelope">Envelope</option>
-                        <option value="fab fa-tiktok">TikTok</option>
-                        <option value="fab fa-youtube">YouTube</option>
-                        <option value="fab fa-instagram">Instagram</option>
-                        <option value="fab fa-facebook">Facebook</option>
-                        <option value="fab fa-twitter">Twitter</option>
-                        <option value="fab fa-github">GitHub</option>
-                        <option value="fab fa-linkedin">LinkedIn</option>
-                        <option value="fab fa-discord">Discord</option>
-                        <option value="fab fa-spotify">Spotify</option>
-                        <option value="fab fa-whatsapp">WhatsApp</option>
-                        <option value="fab fa-telegram">Telegram</option>
-                        <option value="fab fa-reddit">Reddit</option>
-                        <option value="fab fa-twitch">Twitch</option>
-                        <option value="fab fa-pinterest">Pinterest</option>
-                        <option value="fab fa-apple">Apple</option>
-                        <option value="fab fa-android">Android</option>
-                        <option value="fab fa-windows">Windows</option>
-                        <option value="fab fa-bitcoin">Bitcoin</option>
-                        <option value="fab fa-ethereum">Ethereum</option>
-                        <option value="fas fa-address-book">Address Book</option>
-                        <option value="fas fa-anchor">Anchor</option>
-                        <option value="fas fa-archive">Archive</option>
-                        <option value="fas fa-atom">Atom</option>
-                        <option value="fas fa-award">Award</option>
-                        <option value="fas fa-balance-scale">Balance Scale</option>
-                        <option value="fas fa-basketball-ball">Basketball</option>
-                        <option value="fas fa-battery-full">Battery</option>
-                        <option value="fas fa-bell">Bell</option>
-                        <option value="fas fa-bicycle">Bicycle</option>
-                        <option value="fas fa-bomb">Bomb</option>
-                        <option value="fas fa-book">Book</option>
-                        <option value="fas fa-bookmark">Bookmark</option>
-                        <option value="fas fa-brain">Brain</option>
-                        <option value="fas fa-briefcase">Briefcase</option>
-                        <option value="fas fa-bug">Bug</option>
-                        <option value="fas fa-building">Building</option>
-                        <option value="fas fa-bullhorn">Bullhorn</option>
-                        <option value="fas fa-bus">Bus</option>
-                        <option value="fas fa-calculator">Calculator</option>
-                        <option value="fas fa-calendar-alt">Calendar</option>
-                        <option value="fas fa-camera">Camera</option>
-                        <option value="fas fa-car">Car</option>
-                        <option value="fas fa-certificate">Certificate</option>
-                        <option value="fas fa-chart-bar">Chart Bar</option>
-                        <option value="fas fa-chart-pie">Chart Pie</option>
-                        <option value="fas fa-check-circle">Check Circle</option>
-                        <option value="fas fa-chess">Chess</option>
-                        <option value="fas fa-cloud">Cloud</option>
-                        <option value="fas fa-code">Code</option>
-                        <option value="fas fa-coffee">Coffee</option>
-                        <option value="fas fa-cog">Cog</option>
-                        <option value="fas fa-coins">Coins</option>
-                        <option value="fas fa-compass">Compass</option>
-                        <option value="fas fa-copy">Copy</option>
-                        <option value="fas fa-credit-card">Credit Card</option>
-                        <option value="fas fa-crop">Crop</option>
-                        <option value="fas fa-crosshairs">Crosshairs</option>
-                        <option value="fas fa-cube">Cube</option>
-                        <option value="fas fa-database">Database</option>
-                        <option value="fas fa-dna">DNA</option>
-                        <option value="fas fa-dollar-sign">Dollar</option>
-                        <option value="fas fa-download">Download</option>
-                        <option value="fas fa-drafting-compass">Drafting Compass</option>
-                        <option value="fas fa-dragon">Dragon</option>
-                        <option value="fas fa-edit">Edit</option>
-                        <option value="fas fa-eject">Eject</option>
-                        <option value="fas fa-ellipsis-h">Ellipsis H</option>
-                        <option value="fas fa-euro-sign">Euro</option>
-                        <option value="fas fa-exchange-alt">Exchange</option>
-                        <option value="fas fa-exclamation-triangle">Warning</option>
-                        <option value="fas fa-eye">Eye</option>
-                        <option value="fas fa-fighter-jet">Fighter Jet</option>
-                        <option value="fas fa-file-alt">File</option>
-                        <option value="fas fa-film">Film</option>
-                        <option value="fas fa-filter">Filter</option>
-                        <option value="fas fa-fire">Fire</option>
-                        <option value="fas fa-flag">Flag</option>
-                        <option value="fas fa-flask">Flask</option>
-                        <option value="fas fa-folder">Folder</option>
-                        <option value="fas fa-futbol">Soccer Ball</option>
-                        <option value="fas fa-gem">Gem</option>
-                        <option value="fas fa-gift">Gift</option>
-                        <option value="fas fa-glass-martini">Martini</option>
-                        <option value="fas fa-graduation-cap">Graduation Cap</option>
-                        <option value="fas fa-guitar">Guitar</option>
-                        <option value="fas fa-hdd">HDD</option>
-                        <option value="fas fa-headphones">Headphones</option>
-                        <option value="fas fa-heart">Heart</option>
-                        <option value="fas fa-helicopter">Helicopter</option>
-                        <option value="fas fa-history">History</option>
-                        <option value="fas fa-home">Home</option>
-                        <option value="fas fa-hospital">Hospital</option>
-                        <option value="fas fa-hourglass">Hourglass</option>
-                        <option value="fas fa-image">Image</option>
-                        <option value="fas fa-inbox">Inbox</option>
-                        <option value="fas fa-industry">Industry</option>
-                        <option value="fas fa-info-circle">Info</option>
-                        <option value="fas fa-key">Key</option>
-                        <option value="fas fa-keyboard">Keyboard</option>
-                        <option value="fas fa-leaf">Leaf</option>
-                        <option value="fas fa-lemon">Lemon</option>
-                        <option value="fas fa-life-ring">Life Ring</option>
-                        <option value="fas fa-lightbulb">Lightbulb</option>
-                        <option value="fas fa-lock">Lock</option>
-                        <option value="fas fa-magic">Magic</option>
-                        <option value="fas fa-magnet">Magnet</option>
-                        <option value="fas fa-map-marker-alt">Map Marker</option>
-                        <option value="fas fa-microphone">Microphone</option>
-                        <option value="fas fa-microchip">Microchip</option>
-                        <option value="fas fa-moon">Moon</option>
-                        <option value="fas fa-motorcycle">Motorcycle</option>
-                        <option value="fas fa-mouse-pointer">Mouse Pointer</option>
-                        <option value="fas fa-music">Music</option>
-                        <option value="fas fa-paint-brush">Paint Brush</option>
-                        <option value="fas fa-paper-plane">Paper Plane</option>
-                        <option value="fas fa-paw">Paw</option>
-                        <option value="fas fa-pen">Pen</option>
-                        <option value="fas fa-phone">Phone</option>
-                        <option value="fas fa-plane">Plane</option>
-                        <option value="fas fa-plug">Plug</option>
-                        <option value="fas fa-puzzle-piece">Puzzle Piece</option>
-                        <option value="fas fa-qrcode">QR Code</option>
-                        <option value="fas fa-question-circle">Question</option>
-                        <option value="fas fa-quote-right">Quote</option>
-                        <option value="fas fa-recycle">Recycle</option>
-                        <option value="fas fa-robot">Robot</option>
-                        <option value="fas fa-rocket">Rocket</option>
-                        <option value="fas fa-rss">RSS</option>
-                        <option value="fas fa-save">Save</option>
-                        <option value="fas fa-search">Search</option>
-                        <option value="fas fa-server">Server</option>
-                        <option value="fas fa-share-alt">Share</option>
-                        <option value="fas fa-shield-alt">Shield</option>
-                        <option value="fas fa-ship">Ship</option>
-                        <option value="fas fa-shopping-cart">Shopping Cart</option>
-                        <option value="fas fa-signal">Signal</option>
-                        <option value="fas fa-sitemap">Sitemap</option>
-                        <option value="fas fa-skull">Skull</option>
-                        <option value="fas fa-sliders-h">Sliders</option>
-                        <option value="fas fa-snowflake">Snowflake</option>
-                        <option value="fas fa-space-shuttle">Space Shuttle</option>
-                        <option value="fas fa-spinner">Spinner</option>
-                        <option value="fas fa-stamp">Stamp</option>
-                        <option value="fas fa-sun">Sun</option>
-                        <option value="fas fa-sync">Sync</option>
-                        <option value="fas fa-tag">Tag</option>
-                        <option value="fas fa-tasks">Tasks</option>
-                        <option value="fas fa-taxi">Taxi</option>
-                        <option value="fas fa-terminal">Terminal</option>
-                        <option value="fas fa-thumbtack">Thumbtack</option>
-                        <option value="fas fa-ticket-alt">Ticket</option>
-                        <option value="fas fa-tint">Tint</option>
-                        <option value="fas fa-toggle-on">Toggle On</option>
-                        <option value="fas fa-tools">Tools</option>
-                        <option value="fas fa-train">Train</option>
-                        <option value="fas fa-trash">Trash</option>
-                        <option value="fas fa-tree">Tree</option>
-                        <option value="fas fa-truck">Truck</option>
-                        <option value="fas fa-tv">TV</option>
-                        <option value="fas fa-umbrella">Umbrella</option>
-                        <option value="fas fa-university">University</option>
-                        <option value="fas fa-unlock">Unlock</option>
-                        <option value="fas fa-upload">Upload</option>
-                        <option value="fas fa-user">User</option>
-                        <option value="fas fa-user-secret">User Secret</option>
-                        <option value="fas fa-video">Video</option>
-                        <option value="fas fa-volume-up">Volume Up</option>
-                        <option value="fas fa-wallet">Wallet</option>
-                        <option value="fas fa-wrench">Wrench</option>
-                        <option value="custom-icon">Custom Icon</option>
+                        <optgroup label="MLBB & Gaming">
+                            <option value="fas fa-trophy">Trophy (Esports)</option>
+                            <option value="fas fa-fist-raised">Fist (By One)</option>
+                            <option value="fas fa-star">Star</option>
+                            <option value="fas fa-shield-halved">Shield (Emblem)</option>
+                            <option value="fas fa-dragon">Dragon (Lord)</option>
+                            <option value="fas fa-skull">Skull (Kill)</option>
+                            <option value="fas fa-gamepad">Gamepad</option>
+                            <option value="fas fa-gem">Gem (Diamond)</option>
+                            <option value="fas fa-users">Users (Squad)</option>
+                        </optgroup>
+                        <optgroup label="Sosial & Merek">
+                            <option value="fab fa-youtube">YouTube</option>
+                            <option value="fab fa-tiktok">TikTok</option>
+                            <option value="fab fa-instagram">Instagram</option>
+                            <option value="fab fa-facebook">Facebook</option>
+                            <option value="fab fa-twitter">Twitter</option>
+                            <option value="fab fa-discord">Discord</option>
+                            <option value="fab fa-whatsapp">WhatsApp</option>
+                            <option value="fab fa-telegram">Telegram</option>
+                            <option value="fab fa-reddit">Reddit</option>
+                            <option value="fab fa-twitch">Twitch</option>
+                            <option value="fab fa-spotify">Spotify</option>
+                        </optgroup>
+                        <optgroup label="Umum & Tautan">
+                            <option value="fas fa-link">Default Link</option>
+                            <option value="fas fa-globe">Globe</option>
+                            <option value="fas fa-store">Store</option>
+                            <option value="fas fa-newspaper">Newspaper</option>
+                            <option value="fas fa-envelope">Envelope</option>
+                            <option value="fas fa-book">Book</option>
+                            <option value="fas fa-wallet">Wallet</option>
+                            <option value="fas fa-shopping-cart">Shopping Cart</option>
+                            <option value="fas fa-music">Music</option>
+                            <option value="fas fa-home">Home</option>
+                            <option value="fas fa-video">Video</option>
+                            <option value="fas fa-image">Image</option>
+                            <option value="fas fa-user">User</option>
+                        </optgroup>
+                        <optgroup label="Teknologi & Kode">
+                            <option value="fas fa-desktop">Desktop</option>
+                            <option value="fas fa-mobile-alt">Mobile</option>
+                            <option value="fas fa-laptop-code">Laptop Code</option>
+                            <option value="fas fa-terminal">Terminal</option>
+                            <option value="fas fa-code">Code</option>
+                            <option value="fas fa-server">Server</option>
+                            <option value="fas fa-database">Database</option>
+                            <option value="fab fa-github">GitHub</option>
+                            <option value="fas fa-chart-line">Chart Line</option>
+                            <option value="fab fa-bitcoin">Bitcoin</option>
+                            <option value="fas fa-microchip">Microchip</option>
+                        </optgroup>
+                        <optgroup label="Lainnya">
+                            <option value="fas fa-fire">Fire</option>
+                            <option value="fas fa-magic">Magic</option>
+                            <option value="fas fa-rocket">Rocket</option>
+                            <option value="fas fa-atom">Atom</option>
+                            <option value="custom-icon">Custom Icon</option>
+                        </optgroup>
                     </select>
-
+ 
                     <div id="custom-icon-options" class="custom-icon-option mt-3" style="display: none;">
                         <div class="flex space-x-4">
                             <div class="flex-1">
@@ -1392,22 +1274,19 @@
                 { name: 'DJ CAMPURAN VIRAL 5', url: 'https://e.top4top.io/m_3504ymzax0.m4a' }
             ];
 
+            // --- [MODIFIED] Portal default diganti ke tema MLBB ---
             const defaultPortals = [
-                { name: 'BY ONE SEKARANG', url: 'https://website-induk.vercel.app/', icon: 'fas fa-trophy', color: '#ffcc00', description: 'Hadapi aku sekarang. Buktikan siapa yang pantas menjadi Raja dan mendapatkan hadiah.' },
-                { name: 'TESTIMONI BY ONE', url: 'https://testimoni-dun.vercel.app', icon: 'fas fa-star', color: '#ff2a6d', description: 'Semua kekalahan dan penderitaan kalian saat by one lawan Master ada di sini.' },
-                { name: 'Uranus Studio', url: 'https://musicfazry.vercel.app', icon: 'fas fa-store', color: '#d300c5', description: 'Solusi digital untuk mengubah kreativitas menjadi penghasilan.' },
-                { name: 'Uranus Space', url: 'https://uranuspace.vercel.app/', icon: 'fas fa-rocket', color: '#6C63FF', description: 'Manajemen keuangan, waktu, split bill, my diary & HTML akses kapan saja.' },
-                { name: 'Uranustify (Desktop)', url: 'https://uranustify-desktop.vercel.app/', icon: 'fas fa-desktop', color: '#00ff9d', description: 'Simpan & dengarkan musik favoritmu tanpa batas.' },
-                { name: 'Uranustify (Mobile)', url: 'https://uranustify.vercel.app', icon: 'fas fa-mobile-alt', color: '#00ff9d', description: 'Simpan & dengarkan musik tanpa iklan.' },
-                { name: 'Uranus Crypto', url: 'https://uranus-crypto-three.vercel.app/', icon: 'fas fa-chart-line', color: '#f7931a', description: 'Strategi trading kripto cerdas dengan fokus pada profit konsisten dan risiko terukur.' },
-                { name: 'Uranus Super', url: 'https://trakteer.id/uranusfazry/shop/uranus-super-paket-lengkap-uranus-4-alat-digital-MY9SU', icon: 'fas fa-wallet', color: '#FFD700', description: 'Paket premium berisi 4 alat Uranus Studio, Uranustify, Uranus Crypto, dan Uranus Space dengan harga paling murah.' },
-                { name: 'Uranus Shop', url: 'https://trakteer.id/uranusfazry/shop', icon: 'fas fa-gem', color: '#ffffff', description: 'Kumpulan karya premium Uranus siap pakai dengan inovasi dan kualitas terbaik.' },
-                { name: 'Uranus WIFI', url: 'https://uranusfazry-wifi-wireless.vercel.app', icon: 'fas fa-wifi', color: '#1DA1F2', description: 'Internet wireless cepat & stabil untuk kebutuhan online Anda.' },
-                { name: 'Uranus Play', url: 'https://uranus-play.vercel.app', icon: 'fas fa-gamepad', color: '#9147ff', description: 'Game Multiplayer terbaik No. 1 tanpa install.' },
-                { name: 'Uranus Blogger', url: 'https://uranusfazry.blogspot.com', icon: 'fas fa-newspaper', color: '#FF5700', description: 'Artikel yang menyajikan informasi singkat, padat, dan bermanfaat.' },
-                { name: 'Uranus Web & App Development', url: 'https://wa.me/6287872521809?text=Halo%2C+saya+tertarik+dengan+aplikasi+atau+website+seperti+Uranus+Fazry', icon: 'fas fa-laptop-code', color: '#25D366', description: 'Dapatkan website atau aplikasi dengan harga terjangkau.' },
-                { name: 'Skyway Community', url: 'https://skyway-chi.vercel.app/', icon: 'fas fa-users', color: '#191970', description: 'Komunitas yang menjelajahi sisi gelap kehidupan.' },
-                { name: 'Contact Me', url: 'https://mail.google.com/mail/?view=cm&to=irawanfazry697@gmail.com', icon: 'fas fa-envelope', color: '#EA4335', description: 'Get in touch for collaborations or inquiries.' },
+                { name: 'MLBB Official', url: 'https://m.mobilelegends.com/en', icon: 'fas fa-globe', color: '#68c5ff', description: 'Website resmi Mobile Legends: Bang Bang.' },
+                { name: 'MLBB Esports', url: 'https://esports.mobilelegends.com/', icon: 'fas fa-trophy', color: '#ffd700', description: 'Info turnamen, tim, dan jadwal MPL.' },
+                { name: 'MLBB Fandom Wiki', url: 'https://mobile-legends.fandom.com/wiki/Mobile_Legends_Bang_Bang_Wiki', icon: 'fas fa-book', color: '#00ff9d', description: 'Database hero, item, dan skin terlengkap.' },
+                { name: 'Liquipedia MLBB', url: 'https://liquipedia.net/mobilelegends/', icon: 'fas fa-newspaper', color: '#ffffff', description: 'Wiki e-sports untuk scene kompetitif MLBB.' },
+                { name: 'MLBB Reddit', url: 'https://www.reddit.com/r/MobileLegendsGame/', icon: 'fab fa-reddit', color: '#FF5700', description: 'Diskusi komunitas, tips, dan meme.' },
+                { name: 'Official YouTube', url: 'https://www.youtube.com/@MobileLegends5v5BangBang', icon: 'fab fa-youtube', color: '#ff0000', description: 'Channel YouTube resmi MLBB.' },
+                { name: 'Official Instagram', url: 'https://www.instagram.com/mobilelegends_id/', icon: 'fab fa-instagram', color: '#d300c5', description: 'Update harian dan event via Instagram.' },
+                { name: 'Official TikTok', url: 'https://www.tiktok.com/@mobilelegends_id', icon: 'fab fa-tiktok', color: '#000000', description: 'Konten video pendek resmi.' },
+                { name: 'Top Up / Codashop', url: 'https://www.codashop.com/id-id/mobile-legends', icon: 'fas fa-gem', color: '#f7931a', description: 'Beli Diamonds dan Starlight member.' },
+                { name: 'By One (UranusFazry)', url: 'https://website-induk.vercel.app/', icon: 'fas fa-fist-raised', color: '#ff2a6d', description: 'Tantang Raja By One? Klik di sini.' },
+                { name: 'Testimoni By One', url: 'https://testimoni-dun.vercel.app', icon: 'fas fa-star', color: '#ffcc00', description: 'Lihat hasil by one melawan UranusFazry.' }
             ];
 
             async function initPortalApp() {
@@ -1969,7 +1848,7 @@
 
                 const particleMaterial = new THREE.PointsMaterial({
                     size: 0.2,
-                    color: 0x68c5ff,  // updated to cosmic blue
+                    color: 0x68c5ff,  // updated to MLBB blue
                     transparent: true,
                     blending: THREE.AdditiveBlending
                 });
@@ -1978,7 +1857,7 @@
 
                 const lineGeometry = new THREE.BufferGeometry();
                 const lineMaterial = new THREE.LineBasicMaterial({
-                    color: 0xffd700, // updated to celestial gold
+                    color: 0xffd700, // updated to MLBB gold
                     transparent: true,
                     opacity: 0.1
                 });
@@ -2043,68 +1922,61 @@
                 animate();
             }
 
-            // --- CYBER TERMINAL SCRIPT (File 1) ---
+            // --- [MODIFIED] CYBER TERMINAL SCRIPT (File 1) ---
             const terminalBody = document.getElementById('terminal-body');
             const terminalText = document.getElementById('typing-text');
             const commandLine = document.getElementById('command-line');
             const commandInput = document.getElementById('command-input');
             
+            // Fungsi ini tidak lagi menampilkan foto spesifik, biarkan foto profil utama yang berbicara
             function displayProfilePhoto() {
-                const imgContainer = document.createElement('div');
-                const img = document.createElement('img');
-                img.src = 'https://i.imghippo.com/files/fBt9701PM.jpg';
-                img.alt = 'Foto Uranus Fazry';
-                img.style.maxWidth = '250px';
-                img.style.maxHeight = '250px';
-                img.style.marginTop = '10px';
-                img.style.marginBottom = '10px';
-                img.style.borderRadius = '8px';
-                img.style.border = '2px solid var(--terminal-cyan)';
-                img.style.boxShadow = '0 0 15px var(--terminal-cyan)';
-                imgContainer.appendChild(img);
-                terminalText.appendChild(imgContainer);
-                terminalBody.scrollTop = terminalBody.scrollHeight;
+                // Foto sudah ada di header, tidak perlu duplikat di terminal
+                // Jika ingin menambahkan foto hero MLBB, bisa di sini.
+                // const imgContainer = document.createElement('div');
+                // ...
+                // terminalText.appendChild(imgContainer);
+                // terminalBody.scrollTop = terminalBody.scrollHeight;
             }
 
+            // --- [MODIFIED] Teks terminal diganti ke tema MLBB ---
             const messages = [
-                { text: "Initializing system...", delay: 50 },
-                { text: "Loading profile data...", delay: 50 },
+                { text: "Initializing Land of Dawn connection...", delay: 50 },
+                { text: "Loading player data...", delay: 50 },
                 { text: "██████████████ 100%", delay: 30, style: "color: var(--terminal-cyan)" },
                 { text: "\n", delay: 200 },
-                { text: "> Welcome to CYBER TERMINAL // ACCESS GRANTED", delay: 10, style: "color: var(--terminal-green); font-weight: bold" },
+                { text: "> Welcome to LAND OF DAWN TERMINAL // ACCESS GRANTED", delay: 10, style: "color: var(--terminal-green); font-weight: bold" },
                 { text: "\n\n", delay: 100 },
-                { text: ">> SYSTEM USER PROFILE <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
+                { text: ">> PLAYER PROFILE <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
                 { text: "\n", delay: 100 },
-                { action: 'addPhoto', delay: 200 },
-                { text: "> NAME: ", delay: 20 },
+                // { action: 'addPhoto', delay: 200 }, // Dihapus agar tidak duplikat
+                { text: "> IGN: ", delay: 20 },
                 { text: "URANUS FAZRY", delay: 50, style: "color: var(--terminal-cyan); font-weight: bold" },
                 { text: "\n", delay: 50 },
                 { text: "> TITLE: ", delay: 20 },
-                { text: "FULL-STACK CYBER DEVELOPER", delay: 50, style: "color: var(--terminal-cyan)" },
+                { text: "MYTHICAL GLORY PLAYER", delay: 50, style: "color: var(--terminal-cyan)" },
                 { text: "\n", delay: 50 },
                 { text: "> LOCATION: ", delay: 20 },
-                { text: "[DATA ENCRYPTED]", delay: 70, style: "color: var(--terminal-red)" },
+                { text: "LAND OF DAWN", delay: 70, style: "color: var(--terminal-red)" },
                 { text: "\n\n", delay: 100 },
-                { text: ">> SKILL MATRIX <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
+                { text: ">> HERO MASTERY <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
                 { text: "\n", delay: 100 },
-                { text: "> PYTHON:              █████████▉ 95%\n", delay: 20, style: "color: var(--terminal-cyan)" },
-                { text: "> JAVASCRIPT:          ██████████ 97%\n", delay: 20, style: "color: var(--terminal-cyan)" },
-                { text: "> CYBERSECURITY:       ████████▉  88%\n", delay: 20, style: "color: var(--terminal-cyan)" },
-                { text: "> CLOUD ARCHITECTURE:  ████████▊  86%\n", delay: 20, style: "color: var(--terminal-cyan)" },
-                { text: "> AI/ML:               ███████▍   75%\n", delay: 20, style: "color: var(--terminal-cyan)" },
-                { text: "> BLOCKCHAIN:          ██████▎    70%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> ASSASSIN:  █████████▉ 95%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> MARKSMAN:  ██████████ 97%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> MAGE:      ████████▉  88%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> TANK:      ████████▊  86%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> FIGHTER:   ███████▍   75%\n", delay: 20, style: "color: var(--terminal-cyan)" },
+                { text: "> SUPPORT:   ██████▎    70%\n", delay: 20, style: "color: var(--terminal-cyan)" },
                 { text: "\n", delay: 100 },
-                { text: ">> PROJECT HISTORY <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
+                { text: ">> BATTLE LOG (HIGHLIGHTS) <<", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
                 { text: "\n", delay: 100 },
-                { text: "> [2025] CROWNED “KING BY ONE” – MLBB COMPETITIVE ACHIEVEMENT\n", delay: 20 },
-                { text: "> [2025] CRYPTO ENTRY STRATEGY – INDEPENDENT TRADER & ANALYST\n", delay: 20 },
-                { text: "> [2025] WIRELESS INTERNET BUSINESS EXPANSION – FOUNDER\n", delay: 20 },
-                { text: "> [2025] WEB & APP DEVELOPMENT PROJECTS – SELF-TAUGHT DEVELOPER\n", delay: 20 },
-                { text: "> [2021] MLBB KOL INDONESIA – COMPETITIVE PLAYER & CONTENT CREATOR\n", delay: 20 },
-                { text: "> [2020] STREAMING & CONTENT PRODUCTION – MULTI-PLATFORM CREATOR\n", delay: 20 },
+                { text: "> [S32] REACHED MYTHICAL GLORY 100+ STARS\n", delay: 20 },
+                { text: "> [2024] TOURNAMENT CHAMPION - LOCAL E-SPORTS\n", delay: 20 },
+                { text: "> [S31] GLOBAL RANKING URANUS - TOP 10\n", delay: 20 },
+                { text: "> [2023] SQUAD LEADER - 'CELESTIALS'\n", delay: 20 },
+                { text: "> [2021] MLBB KOL INDONESIA – COMPETITIVE PLAYER\n", delay: 20 },
                 { text: "\n", delay: 100 },
                 { text: ">> STATUS <<\n", delay: 10, style: "color: var(--terminal-purple-term); text-decoration: underline" },
-                { text: "TAHUN 2025 MENJADI MOMENTUM PENTING BAGI URANUS FAZRY DENGAN SEJUMLAH PENCAPAIAN STRATEGIS: MERAIH GELAR “RAJA BY ONE” DI MOBILE LEGENDS, MENGEMBANGKAN STRATEGI ENTRI KRIPTO SEBAGAI TRADER DAN ANALIS INDEPENDEN, MEMPERLUAS BISNIS INTERNET WIRELESS SEBAGAI PENDIRI, SERTA MENGERJAKAN BERBAGAI PROYEK PENGEMBANGAN WEB & APLIKASI SECARA MANDIRI. PADA 2021, IA DIPERCAYA SEBAGAI MLBB KOL INDONESIA, MENGGABUNGKAN PERAN SEBAGAI PEMAIN KOMPETITIF DAN PEMBUAT KONTEN YANG BERPENGARUH DI KOMUNITAS ESPORTS. PERJALANANNYA DIMULAI PADA 2020 SEBAGAI STREAMER DAN CONTENT CREATOR MULTI PLATFORM, MEMBANGUN AUDIENS SERTA FONDASI KARIER DIGITALNYA. DENGAN KOMBINASI PENGALAMAN DI TEKNOLOGI, GAMING, DAN BISNIS, IA MEMBANGUN PROFIL PROFESIONAL YANG MENCERMINKAN INOVASI, KETEKUNAN, DAN KEUNGGULAN KOMPETITIF.", delay: 25, style: "color: var(--terminal-green); font-weight: bold; text-transform: uppercase;" },
+                { text: "STATUS: AKTIF MENCARI LAWAN. SIAPAPUN YANG BERANI, MARI BY ONE. BUKTIKAN SKILL-MU DI LAND OF DAWN. RAJA BY ONE TIDAK AKAN MUNDUR. GASKEUN!", delay: 25, style: "color: var(--terminal-green); font-weight: bold; text-transform: uppercase;" },
                 { text: "\n\n", delay: 100 },
                 { text: "> Type 'help' for available commands", delay: 30, style: "color: var(--terminal-green)" },
                 { text: "\n", delay: 50 },
@@ -2184,6 +2056,7 @@
                 type();
             }
 
+            // --- [MODIFIED] Perintah terminal diganti ke tema MLBB ---
             function processCommand(command) {
                 terminalText.appendChild(document.createElement('br'));
                 
@@ -2210,37 +2083,39 @@
 
                 if (command === 'help') {
                     response.innerHTML = `Available commands:<br>
-                        - <span class="highlight">uranusfazry</span>: Show complete profile of UranusFazry<br>
-                        - <span class="highlight">about</span>: Show detailed profile<br>
-                        - <span class="highlight">skills</span>: List technical skills<br>
-                        - <span class="highlight">projects</span>: Show project history<br>
-                        - <span class="highlight">contact</span>: Show contact information<br>
+                        - <span class="highlight">profile</span>: Show complete profile of UranusFazry<br>
+                        - <span class="highlight">lore</span>: Show player lore<br>
+                        - <span class="highlight">mastery</span>: List hero mastery<br>
+                        - <span class="highlight">log</span>: Show battle log highlights<br>
+                        - <span class="highlight">squad</span>: Show squad & contact information<br>
                         - <span class="highlight">musik</span>: Menampilkan daftar musik.<br>
                         - <span class="highlight">&lt;nomor&gt;</span>: Memutar musik dari daftar (misal: '1').<br>
                         - <span class="highlight">stop</span>: Menghentikan musik.<br>
                         - <span class="highlight">clear</span>: Clear the terminal<br>
                         - <span class="highlight">exit</span>: Close terminal (just kidding)`;
-                } else if (command === 'about') {
+                } else if (command === 'lore') {
                      response.innerHTML = `
-                          <p style="color: var(--terminal-green); font-weight: bold; text-transform: uppercase;">
-                          "AKU URANUS FAZRY, MAHKOTA RAJA BY ONE MLBB ADA DI KEPALA AKU. AKU CONTENT KREATOR, STREAMER, TRADER FOREX & CRYPTO, DEVELOPER WEB & APP, KOL MLBB INDONESIA, PUNYA BISNIS WIFI WIRELESS, DAN BERHASIL BIKIN STRATEGI ENTRY KRIPTO YANG BIKIN KAMU CUMA BISA NGIKUTIN. DI GAME GUE HABISIN KAMU, DI DUNIA NYATA GUE KUASAIN KAMU."
-                          </p>
-                        `;
-                } else if (command === 'skills') {
-                    response.innerHTML = `>> SKILL MATRIX <<<br><br>
-                        <span style="color: var(--terminal-cyan)">> PYTHON:              █████████▉ 95%</span><br>
-                        <span style="color: var(--terminal-cyan)">> JAVASCRIPT:          ██████████ 97%</span><br>
-                        <span style="color: var(--terminal-cyan)">> CYBERSECURITY:       ████████▉  88%</span><br>
-                        <span style="color: var(--terminal-cyan)">> CLOUD ARCHITECTURE:  ████████▊  86%</span><br>
-                        <span style="color: var(--terminal-cyan)">> AI/ML:               ███████▍   75%</span><br>
-                        <span style="color: var(--terminal-cyan)">> BLOCKCHAIN:          ██████▎    70%</span><br>`;
-                } else if (command === 'projects') {
-                    response.innerHTML = `>> PROJECT HISTORY <<<br><br>
-                        > [2023] DECENTRALIZED IDENTITY SYSTEM - LEAD DEVELOPER<br>
-                        > [2022] QUANTUM-RESISTANT ENCRYPTION PROTOCOL - RESEARCH TEAM<br>
-                        > [2021] NEURAL NETWORK SECURITY FRAMEWORK - AI SPECIALIST<br>`;
-                } else if (command === 'contact') {
-                    response.innerHTML = `>> SECURE CONTACT CHANNELS <<<br><br>
+                        <p style="color: var(--terminal-green); font-weight: bold; text-transform: uppercase;">
+                        "AKU URANUS FAZRY, MAHKOTA RAJA BY ONE MLBB ADA DI KEPALA AKU. DI GAME GUE HABISIN KAMU, DI DUNIA NYATA GUE KUASAIN KAMU."
+                        </p>
+                    `;
+                } else if (command === 'mastery') {
+                    response.innerHTML = `>> HERO MASTERY <<<br><br>
+                        <span style="color: var(--terminal-cyan)">> ASSASSIN:  █████████▉ 95%</span><br>
+                        <span style="color: var(--terminal-cyan)">> MARKSMAN:  ██████████ 97%</span><br>
+                        <span style="color: var(--terminal-cyan)">> MAGE:      ████████▉  88%</span><br>
+                        <span style="color: var(--terminal-cyan)">> TANK:      ████████▊  86%</span><br>
+                        <span style="color: var(--terminal-cyan)">> FIGHTER:   ███████▍   75%</span><br>
+                        <span style="color: var(--terminal-cyan)">> SUPPORT:   ██████▎    70%</span><br>`;
+                } else if (command === 'log') {
+                    response.innerHTML = `>> BATTLE LOG (HIGHLIGHTS) <<<br><br>
+                        > [S32] REACHED MYTHICAL GLORY 100+ STARS<br>
+                        > [2024] TOURNAMENT CHAMPION - LOCAL E-SPORTS<br>
+                        > [S31] GLOBAL RANKING URANUS - TOP 10<br>
+                        > [2023] SQUAD LEADER - 'CELESTIALS'<br>`;
+                } else if (command === 'squad' || command === 'contact') {
+                    response.innerHTML = `>> SQUAD & CONTACT CHANNELS <<<br><br>
+                        - Squad: <span class="highlight">CELESTIALS (Open Recruitment)</span><br>
                         - Email: <a href="mailto:irawanfazry697@gmail.com" class="highlight">irawanfazry697@gmail.com</a><br>
                         - WhatsApp: <a href="https://wa.me/6287872521809" target="_blank" class="highlight">wa.me/6287872521809</a>`;
                 } else if (command === 'clear') {
@@ -2263,29 +2138,27 @@
                     audioPlayer.pause();
                     audioPlayer.src = '';
                     response.innerHTML = 'Musik dihentikan.';
-                } else if (command === 'uranusfazry') {
+                } else if (command === 'profile' || command === 'uranusfazry') {
                     isAnimated = true;
                     const profileHtml = `
-                        <div style="color: var(--terminal-purple-term); text-decoration: underline;">// URANUSFAZRY - DATA PROFILE //</div><br>
-                        <div><span class="highlight">> BIOGRAFI</span></div>
+                        <div style="color: var(--terminal-purple-term); text-decoration: underline;">// URANUSFAZRY - PLAYER PROFILE //</div><br>
+                        <div><span class="highlight">> LORE</span></div>
                         <p style="margin-left: 15px;">
-                            Uranus Fazry adalah seorang pengembang multi-talenta dan kreator digital yang berbasis di Indonesia. Dengan hasrat untuk teknologi dan inovasi, ia telah membangun berbagai proyek mulai dari aplikasi web canggih hingga platform game interaktif. Dikenal dengan kemampuannya memecahkan masalah kompleks dan kepribadiannya yang kuat, ia adalah 'Raja By One' di dunia digital.
+                            Uranus Fazry adalah seorang 'Raja By One' legendaris di Land of Dawn. Dikenal dengan penguasaan hero yang luas dan strategi tak terduga. Di luar game, ia adalah kreator digital, KOL, dan pebisnis yang mengaplikasikan mentalitas kompetitifnya di dunia nyata.
                         </p><br>
-                        <div><span class="highlight">> HOBI</span></div>
+                        <div><span class="highlight">> ROLE UTAMA</span></div>
                         <div style="margin-left: 15px;">
-                            - Gaming (terutama MLBB)<br>
-                            - Trading Forex & Crypto<br>
-                            - Produksi Musik<br>
-                            - Coding & Eksperimen Teknologi Baru
+                            - Marksman (Core)<br>
+                            - Assassin (Jungler)<br>
+                            - Tank (Roamer - Spesialis Uranus)
                         </div><br>
-                        <div><span class="highlight">> KEAHLIAN UTAMA</span></div>
+                        <div><span class="highlight">> PENCAPAIAN</span></div>
                         <div style="margin-left: 15px;">
-                            - Full-Stack Web Development (JavaScript, Python)<br>
-                            - Cybersecurity & Network Management<br>
-                            - AI/ML Integration<br>
-                            - Blockchain & Smart Contract
+                            - Mythical Glory 100+ Stars (Multi-Season)<br>
+                            - Top 10 Global Uranus<br>
+                            - Juara Turnamen Lokal
                         </div><br>
-                        <div><span class="highlight">> KONTAK</span></div>
+                        <div><span class="highlight">> KONTAK SQUAD</span></div>
                         <div style="margin-left: 15px;">
                             - Email: <a href="mailto:irawanfazry697@gmail.com" class="highlight">irawanfazry697@gmail.com</a><br>
                             - WhatsApp: <a href="https://wa.me/6287872521809" target="_blank" class="highlight">wa.me/6287872521809</a>
@@ -2303,7 +2176,7 @@
                     });
 
                 } else if (command === 'exit') {
-                    response.innerHTML = `<span style="color: var(--terminal-red)">Access Denied: Terminal cannot be closed from this session.</span>`;
+                    response.innerHTML = `<span style="color: var(--terminal-red)">Access Denied: Tidak bisa keluar dari Land of Dawn.</span>`;
                 } else {
                     response.innerHTML = `<span style="color: var(--terminal-red)">Command not found: ${command}</span><br>
                     Type <span class="highlight">'help'</span> for available commands.`;
