@@ -955,7 +955,7 @@
             </div>
             <p class="text-lg md:text-xl neon-text-purple uppercase tracking-wider mt-8">Kumpulan Website Induk MLBB</p>
              <p class="max-w-2xl mx-auto mt-6 text-base md:text-lg text-gray-300 leading-relaxed">
-                Selamat datang di portal MLBB Uranus Fazry. Temukan semua link penting, dari website resmi, esports, hingga komunitas.
+                Selamat datang di hub digital Uranus Fazry, portal utama Anda untuk mengakses kumpulan website induk bertema MLBB.
             </p>
         </header>
         <!-- Time and date display -->
@@ -1038,6 +1038,7 @@
                             <option value="fas fa-shield-halved">Shield (Emblem)</option>
                             <option value="fas fa-dragon">Dragon (Lord)</option>
                             <option value="fas fa-skull">Skull (Kill)</option>
+                            <option value="fas fa-skull-crossbones">Skull & Crossbones</option> <!-- [BARU] Ditambahkan -->
                             <option value="fas fa-gamepad">Gamepad</option>
                             <option value="fas fa-gem">Gem (Diamond)</option>
                             <option value="fas fa-users">Users (Squad)</option>
@@ -1085,6 +1086,7 @@
                         </optgroup>
                         <optgroup label="Lainnya">
                             <option value="fas fa-fire">Fire</option>
+                            <option value="fas fa-fire-alt">Fire Alt</option> <!-- [BARU] Ditambahkan -->
                             <option value="fas fa-magic">Magic</option>
                             <option value="fas fa-rocket">Rocket</option>
                             <option value="fas fa-atom">Atom</option>
@@ -1276,19 +1278,12 @@
 
             // --- [MODIFIED] Portal default diganti ke tema MLBB ---
             const defaultPortals = [
-                { name: 'MLBB Official', url: 'https://m.mobilelegends.com/en', icon: 'fas fa-globe', color: '#68c5ff', description: 'Website resmi Mobile Legends: Bang Bang.' },
-                { name: 'MLBB Esports', url: 'https://esports.mobilelegends.com/', icon: 'fas fa-trophy', color: '#ffd700', description: 'Info turnamen, tim, dan jadwal MPL.' },
-                { name: 'MLBB Fandom Wiki', url: 'https://mobile-legends.fandom.com/wiki/Mobile_Legends_Bang_Bang_Wiki', icon: 'fas fa-book', color: '#00ff9d', description: 'Database hero, item, dan skin terlengkap.' },
-                { name: 'Liquipedia MLBB', url: 'https://liquipedia.net/mobilelegends/', icon: 'fas fa-newspaper', color: '#ffffff', description: 'Wiki e-sports untuk scene kompetitif MLBB.' },
-                { name: 'MLBB Reddit', url: 'https://www.reddit.com/r/MobileLegendsGame/', icon: 'fab fa-reddit', color: '#FF5700', description: 'Diskusi komunitas, tips, dan meme.' },
-                { name: 'Official YouTube', url: 'https://www.youtube.com/@MobileLegends5v5BangBang', icon: 'fab fa-youtube', color: '#ff0000', description: 'Channel YouTube resmi MLBB.' },
-                { name: 'Official Instagram', url: 'https://www.instagram.com/mobilelegends_id/', icon: 'fab fa-instagram', color: '#d300c5', description: 'Update harian dan event via Instagram.' },
-                { name: 'Official TikTok', url: 'https://www.tiktok.com/@mobilelegends_id', icon: 'fab fa-tiktok', color: '#000000', description: 'Konten video pendek resmi.' },
-                { name: 'Top Up / Codashop', url: 'https://www.codashop.com/id-id/mobile-legends', icon: 'fas fa-gem', color: '#f7931a', description: 'Beli Diamonds dan Starlight member.' },
-                { name: 'By One (UranusFazry)', url: 'https://website-induk.vercel.app/', icon: 'fas fa-fist-raised', color: '#ff2a6d', description: 'Tantang Raja By One? Klik di sini.' },
-                { name: 'Testimoni By One', url: 'https://testimoni-dun.vercel.app', icon: 'fas fa-star', color: '#ffcc00', description: 'Lihat hasil by one melawan UranusFazry.' }
+                { name: 'Layla Nexus Sea', url: 'https://nexusea.vercel.app/', icon: 'fas fa-fire', color: '#0066FF', description: 'Website induk bertema Layla Nexus Sea, dirancang khusus untuk kreator MLBB.' },
+                { name: 'Thamuz The Annihilator', url: 'https://thamuz-the-annihilator.vercel.app/', icon: 'fas fa-skull-crossbones', color: '#6600FF', description: 'Website induk bertema Thamuz The Annihilator, dirancang khusus untuk kreator MLBB.' },
+                { name: 'Bane Lord of Scalding Seas', url: 'https://lord-of-scalding-seas.vercel.app/', icon: 'fas fa-fire-alt', color: '#FF4500', description: 'Website induk bertema Bane Lord of Scalding Seas, dirancang khusus untuk kreator MLBB.' },
+                { name: 'Fanny P.Ace', url: 'https://p-ace.vercel.app/', icon: 'fas fa-star', color: '#FFD700', description: 'Website induk bertema Fanny P.Ace, dirancang khusus untuk kreator MLBB.' }
             ];
-
+ 
             async function initPortalApp() {
                 portals = JSON.parse(localStorage.getItem('portals')) || defaultPortals;
                 currentBgImage = localStorage.getItem('bgImage') || '';
