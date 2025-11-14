@@ -12,6 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+    <!-- [IKLAN BARU] Skrip Popunder (Ditempatkan di Head) -->
+    <script type='text/javascript' src='//lightingshovestature.com/78/41/03/7841031a7025a1d176b404434bb8cc15.js'></script>
+
     <style>
         /* --- Font Imports --- */
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
@@ -41,7 +44,54 @@
             /* [PERBAIKAN] Mengganti shadow default di terminal dari hijau ke putih lembut agar lebih mudah dibaca */
             --text-shadow: 0 0 5px rgba(224, 224, 224, 0.5);
         }
- 
+
+        /* --- [IKLAN BARU] CSS untuk Interstitial & Fixed Ads --- */
+        
+        /* Interstitial Ad Animation */
+        #interstitial-ad-overlay {
+            transition: opacity 0.4s ease-in-out;
+        }
+        #interstitial-ad-container {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.7);
+        }
+        #interstitial-ad-overlay.ad-visible {
+            opacity: 1;
+        }
+        #interstitial-ad-overlay.ad-visible #interstitial-ad-container {
+            transform: scale(1);
+        }
+
+        /* Fixed Side Banners */
+        #ad-fixed-left, #ad-fixed-right {
+            /* Sembunyikan di tablet ke bawah */
+            display: none;
+        }
+        
+        /* Tampilkan hanya di layar besar (lg: 1024px) */
+        @media (min-width: 1600px) { /* Sesuaikan breakpoint ini agar tidak tumpang tindih */
+            #ad-fixed-left {
+                display: block;
+                position: fixed;
+                top: 100px;
+                left: 20px; /* Jarak dari kiri */
+                width: 160px;
+                height: 600px;
+                z-index: 40; /* Di bawah navbar (50) tapi di atas konten */
+            }
+            #ad-fixed-right {
+                display: block;
+                position: fixed;
+                top: 100px;
+                right: 20px; /* Jarak dari kanan */
+                width: 160px;
+                height: 600px;
+                z-index: 40;
+            }
+        }
+        /* --- [AKHIR IKLAN BARU] --- */
+
+
         /* --- Styling Dasar (File 1) --- */
         body {
             font-family: 'Inter', sans-serif;
@@ -86,7 +136,7 @@
             background-repeat: no-repeat;
             z-index: -2;
         }
- 
+
         body::after {
             content: '';
             position: fixed;
@@ -102,7 +152,7 @@
             pointer-events: none;
             transition: opacity 0.5s ease-in-out;
         }
- 
+
         /* --- [PERBAIKAN] Text Stroke dibuat lebih spesifik --- */
         /* Menghapus stroke global agar tidak bentrok dengan card */
         body.has-bg-media header,
@@ -652,8 +702,8 @@
             border: 1px solid var(--border-color, rgba(127, 255, 212, 0.3));
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(var(--glow-color, 127, 255, 212), 0.15), 
-                        0 0 30px rgba(var(--glow-color, 127, 255, 212), 0.1),
-                        inset 0 0 10px rgba(var(--glow-color, 127, 255, 212), 0.1);
+                         0 0 30px rgba(var(--glow-color, 127, 255, 212), 0.1),
+                         inset 0 0 10px rgba(var(--glow-color, 127, 255, 212), 0.1);
             z-index: 9999;
             cursor: pointer;
             user-select: none;
@@ -667,8 +717,8 @@
             transform: translateY(-5px) scale(1.03);
             border-color: rgba(var(--glow-color, 127, 255, 212), 0.8);
             box-shadow: 0 0 25px rgba(var(--glow-color, 127, 255, 212), 0.4), 
-                        0 0 50px rgba(var(--glow-color, 127, 255, 212), 0.25),
-                        inset 0 0 12px rgba(var(--glow-color, 127, 255, 212), 0.2);
+                         0 0 50px rgba(var(--glow-color, 127, 255, 212), 0.25),
+                         inset 0 0 12px rgba(var(--glow-color, 127, 255, 212), 0.2);
         }
 
         #futuristic-watermark.light-mode {
@@ -788,6 +838,37 @@
     <canvas id="bg-canvas"></canvas>
     <video autoplay loop muted id="bg-video" class="hidden"></video>
 
+    <!-- [IKLAN BARU] Iklan Tetap Sisi Kiri -->
+    <div id="ad-fixed-left">
+        <p class="text-white text-xs mb-1 text-center opacity-50">Advertisement</p>
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'c14164ed683fec5fc3de002efce1ba94',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//lightingshovestature.com/c14164ed683fec5fc3de002efce1ba94/invoke.js"></script>
+    </div>
+
+    <!-- [IKLAN BARU] Iklan Tetap Sisi Kanan -->
+    <div id="ad-fixed-right">
+        <p class="text-white text-xs mb-1 text-center opacity-50">Advertisement</p>
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'dc27d0639414a288838b0b462128b91a',
+                'format' : 'iframe',
+                'height' : 300,
+                'width' : 160,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//lightingshovestature.com/dc27d0639414a288838b0b462128b91a/invoke.js"></script>
+    </div>
+
+
     <!-- Navbar -->
     <nav class="navbar fixed top-0 left-0 right-0 z-50 bg-[#05010e]/90 backdrop-blur-md border-b border-[#12092a]">
         <div class="container mx-auto px-4">
@@ -800,7 +881,7 @@
                     </div>
                     <span class="ml-3 font-bold text-xl neon-text-blue">URANUSFAZRY</span>
                 </div>
- 
+
                 <!-- Nav Items -->
                 <div class="hidden md:flex items-center space-x-6">
                     <div class="nav-item relative group">
@@ -920,14 +1001,14 @@
                         Reset Background
                     </button>
                 </div>
-                <!-- [MODIFIED] Data Management for Mobile (PDF Removed) -->
+                 <!-- [MODIFIED] Data Management for Mobile (PDF Removed) -->
                  <div class="px-3 py-2 border-t border-gray-700 mt-2">
                     <h3 class="text-sm neon-text-blue mb-2 uppercase tracking-wider">Data Management</h3>
                     <div class="grid grid-cols-2 gap-2 mb-2">
                          <button onclick="importData()" class="w-full py-2 neon-border-blue rounded flex items-center justify-center hover:bg-[var(--neon-blue)] hover:text-[var(--darker-bg)] transition-all font-tech text-xs"><i class="fas fa-upload mr-1"></i>Import</button>
                          <button onclick="backupData()" class="w-full py-2 neon-border-blue rounded flex items-center justify-center hover:bg-[var(--neon-blue)] hover:text-[var(--darker-bg)] transition-all font-tech text-xs"><i class="fas fa-download mr-1"></i>Backup</button>
                     </div>
-                </div>
+               </div>
                 <!-- [MODIFIED] Reset All Button for Mobile -->
                 <div class="px-3 py-2 border-t border-gray-700 mt-2">
                      <button onclick="showConfirmationModal('Are you sure you want to reset everything? This will delete all custom portals and your background settings. This action cannot be undone.', resetAllSettings)" class="block px-3 py-2 rounded-md text-red-500 w-full text-left hover:bg-red-500/20 font-tech">
@@ -958,6 +1039,39 @@
                 Selamat datang di hub digital Uranus Fazry, portal utama Anda untuk mengakses kumpulan website induk bertema MLBB.
             </p>
         </header>
+
+        <!-- [IKLAN BARU] Leaderboard Ads (Desktop & Mobile) -->
+        <div class="flex justify-center my-8">
+            <!-- Desktop Leaderboard (728x90) -->
+            <div class="hidden md:block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '6fa79ad00fcac5484d4401663d9f1190',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//lightingshovestature.com/6fa79ad00fcac5484d4401663d9f1190/invoke.js"></script>
+            </div>
+            <!-- Mobile Banner (320x50) -->
+            <div class="block md:hidden">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '3fa00cfdbaecc13594a32fea0ad0f7fc',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//lightingshovestature.com/3fa00cfdbaecc13594a32fea0ad0f7fc/invoke.js"></script>
+            </div>
+        </div>
+        <!-- [AKHIR IKLAN BARU] -->
+
+
         <!-- Time and date display -->
         <div class="flex justify-center mb-12">
             <div class="neon-border-blue rounded-lg p-4 text-center backdrop-blur-sm bg-[#0d0221]/50 holographic-effect">
@@ -989,6 +1103,47 @@
             </div>
         </div>
         
+        <!-- [IKLAN BARU] In-Content Ads (Native & Banner) -->
+        <div class="my-12 space-y-8 flex flex-col items-center">
+            
+            <!-- Native Banner -->
+            <div class="w-full max-w-3xl">
+                <p class="text-white text-xs mb-2 text-center opacity-50">Native Advertisement</p>
+                <script async="async" data-cfasync="false" src="//lightingshovestature.com/5e618e7ae0207666fb66559292e384ce/invoke.js"></script>
+                <div id="container-5e618e7ae0207666fb66559292e384ce"></div>
+            </div>
+
+            <!-- Medium Rectangle (300x250) -->
+            <div>
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '541610524c5b712194ecab7b49b9a558',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//lightingshovestature.com/541610524c5b712194ecab7b49b9a558/invoke.js"></script>
+            </div>
+
+            <!-- Banner (468x60) -->
+            <div>
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '89e496b4174ab58aa1c239f6cc7e0adb',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//lightingshovestature.com/89e496b4174ab58aa1c239f6cc7e0adb/invoke.js"></script>
+            </div>
+        </div>
+        <!-- [AKHIR IKLAN BARU] -->
+
+
         <!-- Portals grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" id="portals-grid">
             <!-- Portals will be added here by JavaScript -->
@@ -1093,7 +1248,7 @@
                             <option value="custom-icon">Custom Icon</option>
                         </optgroup>
                     </select>
- 
+
                     <div id="custom-icon-options" class="custom-icon-option mt-3" style="display: none;">
                         <div class="flex space-x-4">
                             <div class="flex-1">
@@ -1162,6 +1317,36 @@
     <input type="file" id="import-file-input" class="hidden" accept=".txt,application/json">
 
 
+    <!-- [IKLAN BARU] Interstitial Ad HTML -->
+    <div id="interstitial-ad-overlay" class="fixed inset-0 bg-black bg-opacity-80 z-[9998] flex items-center justify-center p-4" style="display: none; opacity: 0;">
+        <div id="interstitial-ad-container" class="relative bg-gray-900 p-2 rounded-lg shadow-xl border-2 border-[var(--neon-pink)]">
+            <!-- Tombol Close -->
+            <button id="close-interstitial-ad" class="absolute -top-4 -right-4 bg-white text-black rounded-full w-9 h-9 flex items-center justify-center text-2xl font-bold z-10 shadow-lg hover:bg-gray-200 transition-all">
+                &times;
+            </button>
+            <div class="p-4 bg-gray-800 rounded">
+                <p class="text-white text-sm mb-2 text-center opacity-70">Advertisement</p>
+                <!-- Iklan 300x250 sebagai contoh untuk interstitial -->
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '541610524c5b712194ecab7b49b9a558',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//lightingshovestature.com/541610524c5b712194ecab7b49b9a558/invoke.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- [AKHIR IKLAN BARU] -->
+
+
+    <!-- [IKLAN BARU] Skrip Social Bar (Ditempatkan sebelum /body) -->
+    <script type='text/javascript' src='//lightingshovestature.com/d0/fb/e6/d0fbe6d2db95f8a1aa3e4fd4b0cb20a6.js'></script>
+
+
     <script>
         // --- SCRIPT UTAMA PORTAL ---
         document.addEventListener('DOMContentLoaded', async function() {
@@ -1191,6 +1376,13 @@
             const confirmationMessage = document.getElementById('confirmation-message');
             const confirmOkBtn = document.getElementById('confirm-ok-btn');
             const confirmCancelBtn = document.getElementById('confirm-cancel-btn');
+
+
+            // --- [IKLAN BARU] Variabel Iklan Interstitial ---
+            const interstitialOverlay = document.getElementById('interstitial-ad-overlay');
+            const interstitialContainer = document.getElementById('interstitial-ad-container');
+            const closeInterstitialBtn = document.getElementById('close-interstitial-ad');
+            // --- [AKHIR IKLAN BARU] ---
 
 
             let portals = [];
@@ -1288,7 +1480,35 @@
                 { name: 'X.Borg Tesla Maniac', url: 'https://xborg-tesla-maniac.vercel.app/', icon: 'fas fa-robot', color: '#FF8C00', description: 'Website induk bertema X.Borg Tesla Maniac, dirancang khusus untuk kreator MLBB.' },
                 { name: 'Gusion Dimension Walker', url: 'https://gusion-dimension-walker.vercel.app/', icon: 'fas fa-magic', color: '#4169E1', description: 'Website induk bertema Gusion Dimension Walker, dirancang khusus untuk kreator MLBB.' }
             ];
- 
+
+            // --- [IKLAN BARU] Logika Interstitial Ad ---
+            function showInterstitial() {
+                // Cek sessionStorage. Jika sudah ada, jangan tampilkan lagi
+                if (sessionStorage.getItem('interstitialAdShown')) {
+                    console.log('Interstitial ad already shown this session.');
+                    return;
+                }
+
+                interstitialOverlay.style.display = 'flex';
+                // Timeout kecil untuk memastikan 'display' diterapkan sebelum transisi dimulai
+                setTimeout(() => {
+                    interstitialOverlay.classList.add('ad-visible');
+                }, 50);
+
+                // Tandai bahwa iklan sudah ditampilkan di sesi ini
+                sessionStorage.setItem('interstitialAdShown', 'true');
+            }
+
+            function hideInterstitial() {
+                interstitialOverlay.classList.remove('ad-visible');
+                // Tunggu animasi selesai (0.4s) sebelum menyembunyikan
+                setTimeout(() => {
+                    interstitialOverlay.style.display = 'none';
+                }, 400); 
+            }
+            // --- [AKHIR IKLAN BARU] ---
+
+
             async function initPortalApp() {
                 portals = JSON.parse(localStorage.getItem('portals')) || defaultPortals;
                 currentBgImage = localStorage.getItem('bgImage') || '';
@@ -1356,6 +1576,13 @@
                     confirmationModal.classList.add('hidden');
                     onConfirmCallback = null;
                 });
+
+                // --- [IKLAN BARU] Tampilkan interstitial dan pasang listener ---
+                // Tampilkan setelah 1 detik agar tidak terlalu mengganggu
+                setTimeout(showInterstitial, 1000);
+                // Listener untuk tombol close
+                closeInterstitialBtn.addEventListener('click', hideInterstitial);
+                // --- [AKHIR IKLAN BARU] ---
             }
             
             // [NEW] Show Confirmation Modal Function
@@ -2095,10 +2322,10 @@
                         - <span class="highlight">exit</span>: Close terminal (just kidding)`;
                 } else if (command === 'lore') {
                      response.innerHTML = `
-                        <p style="color: var(--terminal-green); font-weight: bold; text-transform: uppercase;">
-                        "AKU URANUS FAZRY, MAHKOTA RAJA BY ONE MLBB ADA DI KEPALA AKU. DI GAME GUE HABISIN KAMU, DI DUNIA NYATA GUE KUASAIN KAMU."
-                        </p>
-                    `;
+                         <p style="color: var(--terminal-green); font-weight: bold; text-transform: uppercase;">
+                         "AKU URANUS FAZRY, MAHKOTA RAJA BY ONE MLBB ADA DI KEPALA AKU. DI GAME GUE HABISIN KAMU, DI DUNIA NYATA GUE KUASAIN KAMU."
+                         </p>
+                     `;
                 } else if (command === 'mastery') {
                     response.innerHTML = `>> HERO MASTERY <<<br><br>
                         <span style="color: var(--terminal-cyan)">> ASSASSIN:  █████████▉ 95%</span><br>
